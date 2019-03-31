@@ -1,6 +1,6 @@
 chrome.devtools.panels.create(
-    'Network Filter',
+    'Focus',
     null, // No icon path
-    'Panel/network_filter_panel.html',
+    'Panel/index.html',
     null // no callback needed
 );

@@ -1,7 +1,7 @@
 {
-  "name": "Filter Network",
+  "name": "Focus",
   "version": "0.1",
-  "description": "Filter req/res by body content",
+  "description": "tracks the time spent in your apps",
   "devtools_page": "index.html",
   "permissions": ["http://domain/getjson*"],
   "manifest_version": 2,
