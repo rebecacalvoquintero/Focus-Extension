@@ -3,7 +3,10 @@
   "version": "0.1",
   "description": "tracks the time of your apps",
   "devtools_page": "index.html",
-  "permissions": ["http://domain/getjson*"],
+  "permissions": [
+    "storage",
+    "tabs"
+  ],
   "icons": {
     "48": "icon.png"
   },
@@ -16,6 +19,6 @@
   "content_security_policy": "script-src 'self' https://ajax.googleapis.com; object-src 'self'",
   "web_accessible_resources": [
     "*"
-  ],
-  "permissions": ["background", "notifications", "tabs"]
+  ]
+
 }
