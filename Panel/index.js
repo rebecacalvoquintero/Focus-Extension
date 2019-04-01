@@ -26,7 +26,9 @@ getCountFromStorage((count) => {
 
   const updateUi = () => {
     getCountFromStorage(count => {
-      let countString = Object.keys(count).map(key => `${key}: ${count[key]} seconds`);
+      let countString = Object.keys(count)
+        .map(key => `<div>${key}: ${count[key]}</div>`)
+        .join('\n');
       document.getElementById("log").innerHTML = countString;
     });
   }
@@ -34,7 +36,7 @@ getCountFromStorage((count) => {
   // on a loop update website count` with current website
   setInterval(trackWebsites, 1000);
   // on a loop update ui with count
-  setInterval(updateUi, 1000);
+  setInterval(updateUi, 10);
 });
 
 const extractHostname = (url) => {
