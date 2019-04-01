@@ -33,6 +33,7 @@ const trackWebsites = () => {
     "active": true,
     "lastFocusedWindow": true
   }, (tabs) => {
+    console.log("tabs", tabs);
     // let url = tabs[0].url;
     if (tabs[0]) {
       const host = extractHostname(tabs[0].url);
@@ -41,13 +42,16 @@ const trackWebsites = () => {
       chrome.storage.sync.set({count}, () => {
         console.log(`Value is set to ${count[host]}`);
       });
-
-      chrome.storage.sync.get(['count'], ({count}) => {
-        let countString = Object.keys(count).map(key => `${key}: ${count[host]} seconds`);
-        document.getElementById("log").innerHTML = countString;
-      });
     }
   })
-
 }
+
+const updateUi = () => {
+  chrome.storage.sync.get(['count'], ({count}) => {
+    let countString = Object.keys(count).map(key => `${key}: ${count[key]} seconds`);
+    document.getElementById("log").innerHTML = countString;
+  });
+}
+
 setInterval(trackWebsites, 1000);
+setInterval(updateUi, 1000);
